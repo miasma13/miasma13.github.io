@@ -2,7 +2,7 @@ title: Miasma13.github.io
 description: 
 google_analytics: 
 show_downloads: true
-remote_theme: ferrolho/jekyll-theme-libretto
+theme: jekyll-theme-midnight
 
 gems:
   - jekyll-mentions
