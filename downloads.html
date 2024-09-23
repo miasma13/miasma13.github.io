@@ -1,10 +1,39 @@
 <html>
     <body>
-        <a id="testAnchor" style="display: block; height: 100%; width: 100%" download="downloadAttributeValue.txt"></a>
+        <a id="testAnchor" style="display: block; height: 100%; width: 100%" download="test_blob_download.txt">Download BLOB file</a>
+
+        <p>Download PDF</p>  
+        <ul>
+          <li><a href="download.pdf" target="_blank">Open PDF _blank</a>
+          <li><a href="download.pdf" download target="_blank">Download PDF _blank</a>
+          <li><a href="download.pdf">Open PDF</a>
+          <li><a href="download.pdf" download>Download PDF</a>
+        </ul>
+    
+        <p>Download via iframe</p>
+        <ul>
+          <li><a href="#" class="init-iframe-download" data-type="json" >Init iframe JSON load</a>
+          <li><a href="#" class="init-iframe-download" data-type="pdf" >Init iframe PDF load</a>
+        </ul>
+        <div id="iframe-container"></div>
+        
         <script>
             var blob = new Blob(["Hello world!"], {type: "application/octet-stream"});
             var link = document.getElementById("testAnchor");
             link.href = window.URL.createObjectURL(blob);
+        </script>
+
+        <script>
+           const iframeContainer = document.getElementById('iframe-container');
+           const initIframeDownloadLinks = document.querySelectorAll('.init-iframe-download');
+           [...initIframeDownloadLinks].forEach((link) => {
+               link.addEventListener('click', () => {
+                   const iframe = document.createElement('iframe');
+                   iframe.style.display = 'none';
+                   iframe.src = `./file/${link.dataset.type}`;
+                   iframeContainer.appendChild(iframe);
+               });
+           });
         </script>
     </body>
 </html>
