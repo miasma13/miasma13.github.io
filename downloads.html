@@ -1,8 +1,6 @@
 <html>
     <body>
         <a id="testAnchor" download="test_blob_download.txt">Download BLOB file</a>
-        <a id="testAnchor2" download="download with a long name.txt">Download BLOB file</a>
-        <a id="testAnchor3" download=download with a long name.txt>Download BLOB file</a>
 
         <p>Download PDF</p>  
         <ul>
@@ -10,6 +8,7 @@
           <li><a href="download.pdf" download target="_blank">Download PDF _blank</a>
           <li><a href="download.pdf">Open PDF</a>
           <li><a href="download.pdf" download>Download PDF</a>
+            <li><a href="download with a long name.pdf" download>Download PDF with spaces in file name</a>
         </ul>
     
         <p>Download via iframe</p>
@@ -20,13 +19,6 @@
         <div id="iframe-container"></div>
 
         <a href="https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending/" target="_blank">What are my headers</a>
-        
-
-        <p>Download PDF</p>  
-        <ul>
-          <li><a href="download with a long name.pdf" download>Download PDF _blank</a>
-          <li><a href=download with a long name.pdf download>Download PDF _blank</a>
-        </ul>
 
         <script>
             var blob = new Blob(["Hello world!"], {type: "application/octet-stream"});
