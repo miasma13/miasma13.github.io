@@ -1,6 +1,8 @@
 <html>
     <body>
         <a id="testAnchor" download="test_blob_download.txt">Download BLOB file</a>
+        <a id="testAnchor2" download="download with a long name.txt">Download BLOB file</a>
+        <a id="testAnchor3" download=download with a long name.txt>Download BLOB file</a>
 
         <p>Download PDF</p>  
         <ul>
@@ -19,10 +21,20 @@
 
         <a href="https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending/" target="_blank">What are my headers</a>
         
+
+        <p>Download PDF</p>  
+        <ul>
+          <li><a href="download with a long name.pdf" download>Download PDF _blank</a>
+          <li><a href=download with a long name.pdf download>Download PDF _blank</a>
+        </ul>
+
         <script>
             var blob = new Blob(["Hello world!"], {type: "application/octet-stream"});
             var link = document.getElementById("testAnchor");
             link.href = window.URL.createObjectURL(blob);
+
+            document.getElementById("testAnchor2").link.href = window.URL.createObjectURL(blob);
+            document.getElementById("testAnchor3").link.href = window.URL.createObjectURL(blob);
         </script>
 
         <script>
